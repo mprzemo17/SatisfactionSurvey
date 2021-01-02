@@ -1,5 +1,6 @@
 package com.example.myquiz;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +43,15 @@ public class SetsAdapter extends BaseAdapter {
         {
             view = convertView;
         }
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(parent.getContext(), QuestionActivity.class);
+                parent.getContext().startActivity(intent);
+            }
+        });
+
         ((TextView) view.findViewById(R.id.setNo_tv)).setText(String.valueOf(position+1));   //numeruje sety od 1 + kolejna pozycja
-        return view;
+        return view ;
     }
 }

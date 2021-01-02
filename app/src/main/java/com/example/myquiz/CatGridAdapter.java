@@ -1,5 +1,6 @@
 package com.example.myquiz;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,6 +47,17 @@ public class CatGridAdapter extends BaseAdapter {
         {
             view = convertView;
         }
+
+        // kod który po wyborze kategorii otwiera okno z wyborem setów
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(parent.getContext(), SetsActivity.class);
+                intent.putExtra("CATEGORY", catList.get(position));
+                parent.getContext().startActivity(intent);
+            }
+        }); //koniec
 
   //      ((TextView) view.findViewById(R.id.catName)).setText(catList.get(position));
   //      ((TextView) view.findViewById(R.id.catName)).setText(catList.get(position));

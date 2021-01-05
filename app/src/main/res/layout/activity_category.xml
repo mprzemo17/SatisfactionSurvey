@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimaryy"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
         
 
         ></androidx.appcompat.widget.Toolbar>

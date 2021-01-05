@@ -26,6 +26,7 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
     private List<Question> questionList;
     private int quesNum;
     private CountDownTimer countDown;
+    private int score; //pod score activity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,13 +49,16 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
 
         getQuestionsList();
 
+        //pod score activity
+        score = 0;
+
     }
 
     private void getQuestionsList()
     {
         questionList = new ArrayList<>();
 
-        questionList.add(new Question("Question 1", "A", "B", "C", "D", 1&2&3));
+        questionList.add(new Question("Question 1", "A", "B", "C", "D", 2));
         questionList.add(new Question("Question 2", "B", "B", "D", "A", 2));
         questionList.add(new Question("Question 3", "C", "B", "D", "A", 2));
         questionList.add(new Question("Question 4", "A", "D", "C", "B", 2));
@@ -138,14 +142,15 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         {
             //Right answer
 
-            ((Button)view).setBackgroundTintList(ColorStateList.valueOf(Color.RED));
+            view.setBackgroundTintList(ColorStateList.valueOf(Color.GREEN));
+            score++; //pod socre acitivty
 
         }
         else
         {
             //Wrong answer
 
-            ((Button)view).setBackgroundTintList(ColorStateList.valueOf(Color.RED));
+            view.setBackgroundTintList(ColorStateList.valueOf(Color.RED));
 
             switch (questionList.get(quesNum).getCorrectAns())
             {
@@ -206,6 +211,8 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
         {
         //Go to score activity
             Intent intent = new Intent(QuestionActivity.this, ScoreActivity.class);
+            intent.putExtra("SCORE", String.valueOf(score) + "/" + String.valueOf(questionList.size())); //pod score activity dodana linia
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // PO WEJŚCIU NA SCORE ACTIVITY CZYŚCI POPRZEDNI EKRAN
             startActivity(intent);
             QuestionActivity.this.finish();
         }
@@ -266,4 +273,10 @@ public class QuestionActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        countDown.cancel();
+    }
 }

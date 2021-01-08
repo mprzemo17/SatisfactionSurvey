@@ -4,12 +4,16 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import static com.example.myquiz.SpalshActivity.catList; //dodane
+
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.GridView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.myquiz.SpalshActivity.catList;
 
 
 public class CategoryActivity extends AppCompatActivity {
@@ -26,14 +30,18 @@ public class CategoryActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Categories");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        catGrid = findViewById(R.id.catGridView);
+        catGrid = findViewById(R.id.catGridview);
 
-        List<String> catList = new ArrayList<>();
+//        List<String> catList = new ArrayList<>();
+//
+//        catList.add("SATYSFAKCJA HAIR");
+//        catList.add("BARBER CIESZYN"); //ilość kategorii
 
-        catList.add("SATYSFAKCJA HAIR");
-        catList.add("BARBER CIESZYN"); //ilość kategorii
 
-        CatGridAdapter adapter = new CatGridAdapter(catList);
+
+
+
+        CatGridAdapter adapter = new CatGridAdapter(catList);//było catList
         catGrid.setAdapter(adapter);
 
    }

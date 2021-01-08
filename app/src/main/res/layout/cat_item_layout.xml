@@ -10,23 +10,23 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     >
 
-    <ImageView
-        android:id="@+id/catName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        app:srcCompat="@drawable/barber_logo"
-        />
-<!--    <TextView-->
+<!--    <ImageView-->
+<!--        android:id="@+id/catName"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
-<!--        android:text="Cat 1"-->
-<!--        android:id="@+id/catName"-->
-<!--        android:textColor="@color/colorAccent"-->
-<!--        android:textSize="18sp"-->
-
-
+<!--        android:layout_weight="1"-->
+<!--        app:srcCompat="@drawable/barber_logo"-->
 <!--        />-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cat 1"
+        android:id="@+id/catName"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+
+
+        />
 
 
 </LinearLayout>

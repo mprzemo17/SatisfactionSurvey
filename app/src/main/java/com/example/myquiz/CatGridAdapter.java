@@ -55,12 +55,15 @@ public class CatGridAdapter extends BaseAdapter {
             public void onClick(View v) {
                 Intent intent = new Intent(parent.getContext(), SetsActivity.class);
                 intent.putExtra("CATEGORY", catList.get(position));
+                //dodane do setów z bazy
+
+                intent.putExtra("CATEGORY_ID", position + 1); //dodana linia
                 parent.getContext().startActivity(intent);
             }
         }); //koniec
 
-  //      ((TextView) view.findViewById(R.id.catName)).setText(catList.get(position));
-  //      ((TextView) view.findViewById(R.id.catName)).setText(catList.get(position));
+        ((TextView) view.findViewById(R.id.catName)).setText(catList.get(position));   //dwie linie odpowiadające za wyświetlanie nazw kategorii
+        ((TextView) view.findViewById(R.id.catName)).setText(catList.get(position));
 
       //  Random rnd = new Random();
       //  int color = Color.argb(255,rnd.nextInt(255),rnd.nextInt(255), rnd.nextInt(255)); //color kategorii się tu ustawia randomowo

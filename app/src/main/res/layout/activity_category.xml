@@ -21,11 +21,11 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:id="@+id/catGridView"
+        android:id="@+id/catGridview"
         android:background="@drawable/border"
         android:layout_gravity="center"
-        android:columnWidth="100dp"
-        android:numColumns="1"
+        android:columnWidth="50dp"
+        android:numColumns="2"
 
         ></GridView>
     
